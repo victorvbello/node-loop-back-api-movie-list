@@ -14,33 +14,42 @@
     ]
   },
   "User": {
-    "dataSource": "db"
+    "dataSource": "api_movie_db",
+    "public": false
   },
   "AccessToken": {
-    "dataSource": "db",
+    "dataSource": "api_movie_db",
     "public": false
   },
   "ACL": {
-    "dataSource": "db",
+    "dataSource": "api_movie_db",
     "public": false
   },
   "RoleMapping": {
-    "dataSource": "db",
+    "dataSource": "api_movie_db",
     "public": false,
     "options": {
       "strictObjectIDCoercion": true
     }
   },
   "Role": {
-    "dataSource": "db",
+    "dataSource": "api_movie_db",
     "public": false
   },
   "Movie": {
-    "dataSource": "db",
+    "dataSource": "api_movie_db",
     "public": true
   },
   "Gender": {
-    "dataSource": "db",
+    "dataSource": "api_movie_db",
+    "public": true
+  },
+  "Actor": {
+    "dataSource": "api_movie_db",
+    "public": true
+  },
+  "Member": {
+    "dataSource": "api_movie_db",
     "public": true
   }
 }

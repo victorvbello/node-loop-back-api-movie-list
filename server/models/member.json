@@ -1,7 +1,8 @@
 {
-  "name": "Gender",
-  "base": "PersistedModel",
+  "name": "Member",
+  "base": "User",
   "idInjection": true,
+  "ttl":86400,
   "options": {
     "validateUpsert": true
   },
@@ -12,13 +13,7 @@
     }
   },
   "validations": [],
-  "relations": {
-    "movies": {
-      "type": "hasMany",
-      "model": "Movie",
-      "foreignKey": ""
-    }
-  },
+  "relations": {},
   "acls": [],
   "methods": {}
 }

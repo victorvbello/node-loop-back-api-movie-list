@@ -2,5 +2,15 @@
   "db": {
     "name": "db",
     "connector": "memory"
+  },
+  "api_movie_db": {
+    "host": "localhost",
+    "port": 27017,
+    "url": "",
+    "database": "api_movie",
+    "password": "",
+    "name": "api_movie_db",
+    "user": "",
+    "connector": "mongodb"
   }
 }

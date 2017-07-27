@@ -13,12 +13,30 @@
   },
   "validations": [],
   "relations": {
-    "gender": {
+    "genders": {
       "type": "belongsTo",
       "model": "Gender",
       "foreignKey": ""
+    },
+    "actors": {
+      "type": "hasMany",
+      "model": "Actor",
+      "foreignKey": ""
     }
   },
-  "acls": [],
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    }
+  ],
   "methods": {}
 }

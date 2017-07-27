@@ -1,5 +1,5 @@
 {
-  "name": "Gender",
+  "name": "Actor",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -9,6 +9,12 @@
     "name": {
       "type": "string",
       "required": true
+    },
+    "image": {
+      "type": "string"
+    },
+    "ranking": {
+      "type": "number"
     }
   },
   "validations": [],
