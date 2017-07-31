@@ -14,4 +14,5 @@
 # DevDependencies
 	"eslint": "^3.17.1",
   "eslint-config-loopback": "^8.0.0",
+  "nodemon": "^1.11.0",
   "nsp": "^2.1.0"

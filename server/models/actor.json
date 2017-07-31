@@ -15,8 +15,17 @@
     },
     "ranking": {
       "type": "number"
+    },
+    "date_create":{
+      "type":"date"
+    },
+    "date_update":{
+      "type":"date"
     }
   },
+  "hidden":[
+    "date_create","date_update"
+  ],
   "validations": [],
   "relations": {
     "movies": {
