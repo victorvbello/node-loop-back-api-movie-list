@@ -41,7 +41,7 @@
     "public": true
   },
   "Gender": {
-    "dataSource": "api_movie_db",
+    "dataSource": "api_movies_cql",
     "public": true
   },
   "Actor": {

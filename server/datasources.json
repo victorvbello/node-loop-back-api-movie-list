@@ -12,5 +12,15 @@
     "name": "api_movie_db",
     "user": "",
     "connector": "mongodb"
+  },
+  "api_movies_cql": {
+    "host": "localhost",
+    "port": 9042,
+    "url": "",
+    "database": "api_movies",
+    "password": "cassandra",
+    "user": "cassandra",
+    "name": "api_movies_cql",
+    "connector": "cassandra"
   }
 }

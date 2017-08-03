@@ -2,6 +2,9 @@
   "name": "Gender",
   "base": "PersistedModel",
   "idInjection": true,
+  "cassandra":{
+    "table":"gender"
+  },
   "options": {
     "validateUpsert": true
   },
