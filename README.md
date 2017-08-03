@@ -1,5 +1,8 @@
 # LoopBack API REST Movie 
 
+# DB Cassandra
+    db.txt
+
 # Dependencies
     "compression": "^1.0.3"
     "cors": "^2.5.2"

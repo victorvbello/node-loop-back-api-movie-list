@@ -1,0 +1,6 @@
+"user": "cassandra",
+"password": "cassandra",
+
+CREATE KEYSPACE api_movies WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 3 };
+
+CREATE TABLE gender (id uuid,name varchar,PRIMARY KEY (id));
