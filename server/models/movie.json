@@ -9,6 +9,9 @@
     "name": {
       "type": "string",
       "required": true
+    },
+    "actor_count":{
+      "type":"number"
     }
   },
   "validations": [],

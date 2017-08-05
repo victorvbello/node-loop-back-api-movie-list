@@ -11,12 +11,32 @@ module.exports = function(Actor) {
 		next();
 	});
 
+	Actor.observe('after save',function(ctx,next){
+		let movieId=ctx.instance.movieId;
+		Actor.find({where:{movieId:movieId}},function(err, actors){
+			if(err){
+				Actor.throwError('Ocurrio un error '+ err.message,err.status,next);
+			}
+			let count=actors.length;
+			// Access to relation model
+			Actor.app.models.Movie.findById(movieId,{},function(err,movie){
+				if(err){
+					Actor.throwError('Ocurrio un error '+ err.message,err.status,next);
+				}
+				movie.updateAttribute("actor_count",count,function(err){
+					if(err){
+						Actor.throwError('Ocurrio un error '+ err.message,err.status,next);
+					}
+				})
+			});
+		});
+		next();
+	});
 
 
 	Actor.prototype.setRanking=function(ranking,cb){
-		var ActorModel=this;
-		console.log(ActorModel)
-		var result='';
+		let ActorModel=this;
+		let result='';
 
 		ActorModel.ranking=ranking;
 		//Update instance
@@ -25,9 +45,7 @@ module.exports = function(Actor) {
 			function(err, instance){
 				if(err){
 					//send a custom error
-					var error=new Error('Ocurrio un error '+ err.message);
-					error.status=err.status;
-					cb(error);		
+					Actor.throwError('Ocurrio un error '+ err.message,err.status,cb);
 				}else if(instance){
 					result="success";
 					cb(null,result);
@@ -38,16 +56,14 @@ module.exports = function(Actor) {
 	}
 
 	Actor.prototype.dead=function(cb){
-		var ActorModel=this;
+		let ActorModel=this;
 		//Delete instance
 		Actor.destroyById(this.id,function(err){
 			if(err){
 				//send a custom error
-				var error=new Error('Ocurrio un error '+ err.message);
-				error.status=err.status;
-				cb(error);		
+				Actor.throwError('Ocurrio un error '+ err.message,err.status,cb);	
 			}else{
-				var result="success";
+				let result="success";
 				cb(null,result);
 			}
 		});
@@ -84,4 +100,11 @@ module.exports = function(Actor) {
 
 	//disable endpoint defaul
 	Actor.disableRemoteMethodByName('upsertWithWhere');
+
+
+	Actor.throwError=function(msg,statusCode,cb){
+		let errorObject=new Error(msg);
+		errorObject.status=statusCode;
+		cb(errorObject);
+	}
 };

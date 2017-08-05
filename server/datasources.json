@@ -18,8 +18,8 @@
     "port": 9042,
     "url": "",
     "database": "api_movies",
-    "password": "cassandra",
     "user": "cassandra",
+    "password": "cassandra",
     "name": "api_movies_cql",
     "connector": "cassandra"
   }
